@@ -1,5 +1,8 @@
 /**
- * jquery auto complete - built with jQuery 1.7.0
+ * jQuery Auto Complete - built with jQuery 1.7.0
+ * Author : Richard Sussex 
+ * Twitter : ukwebdeveloper
+ * GitHub : ukwebdeveloper)
  */
 
 (function( $ ){
