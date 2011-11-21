@@ -47,6 +47,7 @@
 
 	// on key up
     $(this).keyup(function() {
+    	
 		// remove existing
 		$('.list-holder', parentWrapper).remove();
 	    
@@ -78,8 +79,10 @@
 
 					// add a click function to the list-holder
 					$('ul li', parentWrapper).click(function() {
+						
 						// put the id in the hidden field
 						$('.autoComplete-hiddenField', parentWrapper).val($(this).attr('id'));
+						
 						// put the value in the search field
 						$(thisElement).val($(this).text());
 
