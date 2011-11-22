@@ -30,7 +30,7 @@ ONLOAD :
 	<input id="autoComplete" class="auto_complete-active" type="text">
 </div>
 
-WITH SERACH RESULTS :
+WITH SEARCH RESULTS :
 
 <div class="autoComplete-holder">
 	<input class="autoComplete-hiddenField" type="hidden" name="searchField">
@@ -42,4 +42,11 @@ WITH SERACH RESULTS :
 			<li id="6">Cotent from somewhere</li>
 		</ul>
 	</div>
+</div>
+
+AFTER SERACH RESULT SELECTED :
+
+<div class="autoComplete-holder">
+<input class="autoComplete-hiddenField" type="hidden" name="searchField" value="1"> <!-- NOTE THE VALUE OF "serachField" this is the value from the ID of the LI selected.
+<input id="autoComplete" class="auto_complete-active" type="text">
 </div>
