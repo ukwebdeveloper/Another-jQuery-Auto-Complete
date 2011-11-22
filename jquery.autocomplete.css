@@ -1,0 +1,29 @@
+/* jquery auto complete */
+.list-holder {
+	border-left:1px dotted #ccc;
+	border-right:1px dotted #ccc;
+	border-bottom:1px dotted #ccc;
+	height:100px;
+	overflow-y:scroll;
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	-webkit-border-radius: 0px 0px 10px 10px;
+	border-radius: 0px 0px 10px 10px; 
+}
+.list-holder ul {
+	padding:0; 
+	margin:0;	
+}
+.list-holder ul li {
+	padding:4px 0 4px 2px;
+	border-bottom:1px dotted #eaeaea;
+	cursor:pointer;	
+}
+.list-holder ul li:hover {
+	background-color:#eaeaea;
+}
+.auto_complete-active {
+	padding:2px;
+}
