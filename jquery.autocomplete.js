@@ -13,7 +13,7 @@
 	var fieldName = $(this).attr('name');
 
 	// add a class to this field 
-	$(this).addClass('auto_complete-active');
+	$(this).addClass('autoComplete-active');
 	  
 	// remove this the name of this field and create a hidden field with the same name
 	$(this).attr('name', null);

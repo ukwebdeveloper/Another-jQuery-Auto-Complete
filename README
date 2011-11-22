@@ -2,22 +2,24 @@ ANOTHER JQUERY AUTO COMPLETE
 twitter: ukwebdeveloper
 github: ukwebdeveloper
 
-Basic Usage :
+BASIC USAGE :
 
 $('#autoComplete').autoComplete({'url' : "data.php"}); // the file is required, this is very basic, there is currently no alternative data source
 
-With Options :
+OPTIONS :
 
 $('#autoComplete').autoComplete({	
 	'url' : "data.php", // the location of the file that returns a JSON array containing label / id objects - example data.php uses json_encode .
 	'minchars' : 1 // the number of characters that are required before the ajax call is made to the above url to check for results
 	});
 	
-Add a HTML input element to your document body and away you go.
+DETAILS :
+	
+Add a HTML input element to the document body and call $('#autoComplete').autoComplete({'url' : "data.php"}); onload.
 
-When a search result is selected the ID returned from the JSON array is put into a hidden field that takes on the name of the original input element. (the original input element currently has its name removed).
+When a search result is selected the ID returned from the JSON array is passed into a hidden field that takes on the name of the original input element. (the original input element has its name removed).
 
-The additional mark up that is added is shown below:
+The additional mark up that is added is shown below :
 
 RAW HTML :
 	
