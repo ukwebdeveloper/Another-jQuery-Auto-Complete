@@ -35,7 +35,7 @@ WITH SEARCH RESULTS :
 <div class="autoComplete-holder">
 	<input class="autoComplete-hiddenField" type="hidden" name="searchField">
 	<input id="autoComplete" class="auto_complete-active" type="text">
-	<div class="list-holder" style="position:absolute;left:400px;top:222px;width:498;">
+	<div class="list-holder" style="position:absolute;left:400px;top:222px;width:498px;"> <!-- NOTE : left, top and width are calculated from the original input element and offset accordingly -->
 		<ul>
 			<li id="1">Testing</li>
 			<li id="5">Content</li>
@@ -44,9 +44,9 @@ WITH SEARCH RESULTS :
 	</div>
 </div>
 
-AFTER SERACH RESULT SELECTED :
+AFTER SEARCH RESULT HAS BEEN SELECTED :
 
 <div class="autoComplete-holder">
-<input class="autoComplete-hiddenField" type="hidden" name="searchField" value="1"> <!-- NOTE THE VALUE OF "serachField" this is the value from the ID of the LI selected.
+<input class="autoComplete-hiddenField" type="hidden" name="searchField" value="1"> <!-- NOTE : The value of "serachField" this is the value from the ID of the LI selected. -->
 <input id="autoComplete" class="auto_complete-active" type="text">
 </div>

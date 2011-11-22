@@ -75,7 +75,7 @@
 					}
 					
 					// append the list holder
-		    		$(thisElement).after('<div class="list-holder" style="position:absolute;left:'+left+'px;top:'+top+'px;width:'+($(thisElement).outerWidth()-2)+';"><ul>'+html+'</ul></div>');
+		    		$(thisElement).after('<div class="list-holder" style="position:absolute;left:'+left+'px;top:'+top+'px;width:'+($(thisElement).outerWidth()-2)+'px;"><ul>'+html+'</ul></div>');
 
 					// add a click function to the list-holder
 					$('ul li', parentWrapper).click(function() {
