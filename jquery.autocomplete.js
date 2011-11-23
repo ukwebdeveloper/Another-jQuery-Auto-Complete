@@ -6,6 +6,7 @@
  */
 
 (function( $ ){
+	
 		
   $.fn.autoComplete = function( options ) {
 
@@ -46,55 +47,68 @@
 	var left = position.left;
 
 	// on key up
-    $(this).keyup(function() {
+    $(this).keyup(function(event) {
     	
-		// remove existing
-		$('.list-holder', parentWrapper).remove();
-	    
-		// current value
-		var currentValue = $(this).val();
+    	// keys not triggered
+    	var ignoredKeys = [8, 13, 16, 17, 18, 19, 20, 27, 32, 33, 34, 35, 37, 38, 39, 40, 36, 45, 46, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123];
+    
+    	// if event key code not shift
+    	if($.inArray(event.keyCode, ignoredKeys) == -1) {
+    	
+			// remove existing
+			$('.list-holder', parentWrapper).remove();
+		    
+			// current value
+			var currentValue = $(this).val();
+	
+			// store a reference to this
+			var thisElement = this;
+			
+		    // if the length is greater than or equal to 4
+			if(currentValue.length >= settings.minchars) {
 
-		// store a reference to this
-		var thisElement = this;
-		
-	    // if the length is greater than or equal to 4
-		if(currentValue.length >= settings.minchars) {
-
-			// get the data
-			$.ajax({
-				url : settings.url,
-				dataType : 'json',
-				data : 'searchTerm='+currentValue,
-				success : function(data) {
-					// var html
-					var html = '';
-					
-					// data
-					for(var i in data) {
-						var html = html + '<li id="'+data[i].id+'">'+data[i].label+'</li>';
-					}
-					
-					// append the list holder
-		    		$(thisElement).after('<div class="list-holder" style="position:absolute;left:'+left+'px;top:'+top+'px;width:'+($(thisElement).outerWidth()-2)+'px;"><ul>'+html+'</ul></div>');
-
-					// add a click function to the list-holder
-					$('ul li', parentWrapper).click(function() {
+				// get the data
+				$.ajax({
+					url : settings.url,
+					dataType : 'json',
+					data : 'searchTerm='+currentValue,
+					success : function(data) {
+						// remove the list holder
+						$('.list-holder', parentWrapper).remove(); 
+						// var html
+						var html = '';
 						
-						// put the id in the hidden field
-						$('.autoComplete-hiddenField', parentWrapper).val($(this).attr('id'));
+						// data
+						for(var i in data) {
+							var html = html + '<li id="'+data[i].id+'">'+data[i].label+'</li>';
+						}
 						
-						// put the value in the search field
-						$(thisElement).val($(this).text());
-
-						// remove existing
-						$('.list-holder', parentWrapper).slideUp(400,function() {
-							$('.list-holder', parentWrapper).remove(); 
+						// append the list holder
+						if($(thisElement).css('position') == 'absolute') {
+							$(parentWrapper).append('<div class="list-holder" style="position:absolute;left:'+left+'px;top:'+top+'px;width:'+($(thisElement).outerWidth()-2)+'px;"><ul>'+html+'</ul></div>');
+						} else {
+							$(parentWrapper).append('<div class="list-holder" style="position:absolute;width:'+($(thisElement).outerWidth()-2)+'px;"><ul>'+html+'</ul></div>');
+						}
+						
+						// add a click function to the list-holder
+						$('ul li', parentWrapper).click(function() {
+							
+							// put the id in the hidden field
+							$('.autoComplete-hiddenField', parentWrapper).val($(this).attr('id'));
+							
+							// put the value in the search field
+							$(thisElement).val($(this).text());
+	
+							// remove existing
+							$('.list-holder', parentWrapper).slideUp(400,function() {
+								$('.list-holder', parentWrapper).remove(); 
+							});
+							
 						});
-						
-					});
-				} 
-			});
-		}
+					} 
+				});
+			}
+    	} 
     });
   };
 })( jQuery );
