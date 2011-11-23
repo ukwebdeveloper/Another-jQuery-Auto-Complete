@@ -10,7 +10,7 @@
   $.fn.autoComplete = function( options ) {
 
 	// the element name
-	var fieldName = $(this).attr('name');
+	var elementName = $(this).attr('name');
 
 	// add a class to this element 
 	$(this).addClass('autoComplete-active');
@@ -19,7 +19,7 @@
 	$(this).attr('name', null);
 
 	// create a hidden field with the same name
-	var hiddenField = '<input type="hidden" class="autoComplete-hiddenField" name="'+fieldName+'" />';
+	var hiddenField = '<input type="hidden" class="autoComplete-hiddenField" name="'+elementName+'" />';
 	 
 	// create defaults, extend them with any options that were provided
     var settings = $.extend( {
